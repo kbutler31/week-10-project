@@ -1,19 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
-    <link
-    rel="stylesheet"
-    href="./node_modules/bootstrap/dist/css/bootstrap.css"
-  />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="alert alert-primary" role="alert">
-    It wORKS!
-</div>    
-<script src="node_"></script>
+  <div class="container">
+    <h1>Dynamic Table</h1>
+  
+    <br>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      
+      <th scope="col">First</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+        <th scope="row">Mark</th>
+      <td>56</td>
+      
+      
+    </tr>
+    <tr>
+      
+      <th scope="row">Jacob</th>
+      <td>26</td>
+    </tr>
+    <tr>
+      
+      <th scope="row">Larry </th>
+      <td>88</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+<br>
+<form id="addRowForm">
+  <div class="form-group">
+    <label for="nameInput">Name:</label>
+    <input type="text" class="form-control" id="nameInput" required>
+  </div>
+  <div class="form-group">
+    <label for="ageInput">Age:</label>
+    <input type="number" class="form-control" id="ageInput" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Row</button>
+</form>
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      $("#addRowForm").submit(function(event) {
+        event.preventDefault();
+        var name = $("#nameInput").val();
+        var age = $("#ageInput").val();
+        var newRow = "<tr><td>" + name + "</td><td>" + age + "</td></tr>";
+        $("#tableBody").append(newRow);
+        // Clear input fields
+        $("#nameInput").val("");
+        $("#ageInput").val("");
+      });
+    });
+  </script>
 </body>
 </html>
