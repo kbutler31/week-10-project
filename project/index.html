@@ -10,7 +10,17 @@
 <body>
   <div class="container">
     <h1>Dynamic Table</h1>
-  
+    <form id="addRowForm">
+      <div class="form-group">
+        <label for="nameInput">Name:</label>
+        <input type="text" class="form-control" id="nameInput" required>
+      </div>
+      <div class="form-group">
+        <label for="ageInput">Age:</label>
+        <input type="number" class="form-control" id="ageInput" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Row</button>
+    </form>
     <br>
     <table class="table table-hover">
   <thead>
@@ -20,7 +30,7 @@
       <th scope="col">Age</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="tableBody">
     <tr>
       
         <th scope="row">Mark</th>
@@ -42,35 +52,12 @@
 </table>
   </div>
 <br>
-<form id="addRowForm">
-  <div class="form-group">
-    <label for="nameInput">Name:</label>
-    <input type="text" class="form-control" id="nameInput" required>
-  </div>
-  <div class="form-group">
-    <label for="ageInput">Age:</label>
-    <input type="number" class="form-control" id="ageInput" required>
-  </div>
-  <button type="submit" class="btn btn-primary">Add Row</button>
-</form>
+
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <script>
-    $(document).ready(function() {
-      $("#addRowForm").submit(function(event) {
-        event.preventDefault();
-        var name = $("#nameInput").val();
-        var age = $("#ageInput").val();
-        var newRow = "<tr><td>" + name + "</td><td>" + age + "</td></tr>";
-        $("#tableBody").append(newRow);
-        // Clear input fields
-        $("#nameInput").val("");
-        $("#ageInput").val("");
-      });
-    });
-  </script>
+  <script src="./project.js"></script>
+ 
 </body>
 </html>
